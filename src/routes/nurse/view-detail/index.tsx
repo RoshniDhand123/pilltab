@@ -8,9 +8,9 @@ import "./style.scss";
 
 interface Iprops {
 	closeModel: (setAppointment: boolean) => void;	
-	id: number;
+	id?: number;
 	secondBtnText?:string;
-	medicalInfo:any;
+	medicalInfo?:any;
 }
 export type medicalInfo = {
 	"question": string;

@@ -16,14 +16,14 @@ import PatientChart from "../patient-chart";
 import ViewDetail from "../view-detail";
 
 const headCells: HeadCell[] = [
-	{ name: "Id", label: "ID" },
-	{ name: "Name", label: "Name" },
-	{ name: "Dob", label: "DOB" },
-	{ name: "Email", label: "Email" },
+	{ name: "Id", label: "ID",width:"30px" },
+	{ name: "Name", label: "Name" ,width:"30px"},
+	{ name: "Dob", label: "DOB" ,width:"30px"},
+	{ name: "Email", label: "Email",width:"30px" },
 	// { name: "Date", label: "Date" },
 	// { name: "Time", label: "Time" },
-	{ name: "Status", label: "Status" },
-	{ name: "action", label: "Action" },
+	{ name: "Status", label: "Status" ,width:"30px"},
+	{ name: "action", label: "Action" ,width:"30px"},
 ];
 
 class AcceptedRequests extends React.PureComponent<

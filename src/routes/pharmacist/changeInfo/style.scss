@@ -1,0 +1,31 @@
+
+#forgot-password-setting {
+	display: flex;
+	//justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	.button {
+		width: fit-content!important;
+	}
+	.table-container {
+		padding: 10px;
+		//width: calc(100% - 250px);
+		margin: auto;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		margin-top: 40px;
+	}
+	.form-button button{
+		margin:auto;
+
+	}
+}
+@media screen and (max-width: 600px) {
+	.patient-plan-container {
+		.btn {
+			width: 50% !important;
+			margin: 10px;
+		}
+	}
+}

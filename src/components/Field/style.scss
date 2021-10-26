@@ -36,6 +36,7 @@
     mix-blend-mode: normal;
     box-sizing: border-box;
     border-radius: 6px;
+    margin-left:100px;
   }
 }
 
@@ -48,4 +49,5 @@
 .upload #pill-input .MuiInputBase-root {
   border: 1px solid $field-border !important;
   color: $color-secondary;
+  margin-left:10px;
 }

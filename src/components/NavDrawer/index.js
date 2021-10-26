@@ -13,6 +13,7 @@ import styles from "./styles";
 import { APP } from "../../routes/constants";
 import MyProfile from "../../routes/patient/my-profile";
 import Frgpass from '../../routes/pharmacist/password-recovery';
+import ChInf from '../../routes/pharmacist/changeInfo';
 
 const NavDrawer = ({
   menu,
@@ -87,6 +88,7 @@ const NavDrawer = ({
             )}
             <Route exact path="/my-profile" component={MyProfile}/>
             <Route exact path="/change-password" component={Frgpass}/>
+            <Route exact path="/change-info" component ={ChInf}/>
             <Redirect from="*" to={APP} />
           </Switch>
         </div>

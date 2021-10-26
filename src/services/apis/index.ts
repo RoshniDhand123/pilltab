@@ -367,7 +367,11 @@ export const getPatientOrderHistory = async () => {
 	let orderHistory: any = await Request.get(Apis.ORDERS_HISTORY);
 	return verifyResponse(orderHistory);
 };
+export const  getParmacistNotificationData = async ()=>{
+	let notificationList:any= await Request.get(Apis.NURSE_NOTIFICATION);
+	return verifyResponse(notificationList);
 
+}
 export const getUpcomingOrders = async () => {
 	let upcomingOrder: any = await Request.get(Apis.UPCOMING_ORDER);
 	return verifyResponse(upcomingOrder);
@@ -387,6 +391,10 @@ export const setPatientVacation = async (payload: any) => {
 };
 
 export const getPatientNotification=async()=>{
+	let notificationList: any = await Request.get(Apis.PATIENT_NOTIFICATION);
+	return verifyResponse(notificationList);
+}
+export const getParmacistNotification=async()=>{
 	let notificationList: any = await Request.get(Apis.PATIENT_NOTIFICATION);
 	return verifyResponse(notificationList);
 }

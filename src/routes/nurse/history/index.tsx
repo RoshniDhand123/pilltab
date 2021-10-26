@@ -22,11 +22,11 @@ import Loading from "../../../components/loader";
 import { CardNumberElement } from "@stripe/react-stripe-js";
 
 const headCells: HeadCell[] = [	
-	{ name: "first_name", label: "First Name" },
-	{ name: "last_name", label: "Last Name" },
-	{ name: "email", label: "Email" },
-	{ name: "dob", label: "DOB" },	
-	{ name: "action", label: "Action" },
+	{ name: "first_name", label: "First Name" ,width:"30px"},
+	{ name: "last_name", label: "Last Name" ,width:"30px"},
+	{ name: "email", label: "Email" ,width:"30px"},
+	{ name: "dob", label: "DOB",width:"30px" },	
+	{ name: "action", label: "Action",width:"30px" },
 ];
 
 class History extends React.PureComponent<any, {}> {

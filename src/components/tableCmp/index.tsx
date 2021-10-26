@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import {
     Table,
@@ -15,12 +15,16 @@ import {
     Typography,
     TableSortLabel,
     Toolbar,
+  
 } from '@material-ui/core';
 import { Delete, Close, Check } from '@material-ui/icons';
 import "./style.scss";
 import { EnhancedTableToolbarProps, Data, Order, EnhancedTableProps, HeadCell, TableProps } from "./type";
 import useStyles, { useToolbarStyles } from "./styles";
+import ModalComponent from '../modal';
+import ViewDetail from '../../routes/nurse/view-detail';
 import Button from "../button";
+import Tracking from "../../routes/pharmacist/orders/tracking";
 
 const renderCell = (val: string, index: number) => (
     <TableCell align="left" key={index}>{val === "undefined" ? "" : val}</TableCell>
@@ -64,9 +68,12 @@ function EnhancedTableHead(props: EnhancedTableProps) {
         onRequestSort(event, property);
     };
     const { headers } = props;
+    // const styles ={
+    //     maxWidth:"5px", backgroundColor: "green" 
+    // }
     return (
-        <TableHead>
-            <TableRow>
+        <TableHead >
+            <TableRow >
                 {isDelete && <TableCell padding="checkbox">
                     <Checkbox
                         indeterminate={numSelected > 0 && numSelected < rowCount}
@@ -77,10 +84,13 @@ function EnhancedTableHead(props: EnhancedTableProps) {
                 </TableCell>}
                 {headers.map((headCell) => (
                     <TableCell
+                   
                         key={headCell.name}
                         align={'left'}
-                        padding={'default'}
+                        padding={'none'}
                         sortDirection={orderBy === headCell.name ? order : false}
+                        width={headCell.width}
+
                     >
                         <TableSortLabel
                             active={orderBy === headCell.name}
@@ -135,19 +145,14 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
         </Toolbar>
     );
 };
+// const [toogle,setToogle]=useState();
+// const setToogle=()=>{
 
-const renderActionCell = (val: any, index: number) => (
-    <TableCell align="left" key={index}>
-        {val && val.length && val.map((item: any, indx: number) => (
-            <Button
-                className={item.classname}
-                key={indx}
-                onClick={item.method ? item.method.bind({}, indx) : item.callBack}
-                btnText={item.btnTxt}
-            />
-        ))}
-    </TableCell>
-)
+// }
+
+
+
+
 const renderStatusCell = (val: any, index: number) => (
     <TableCell align="left" key={index}>
         {val}
@@ -162,6 +167,54 @@ const TableComponent: React.FC<TableProps> = (props) => {
     const [selected, setSelected] = React.useState<string[]>([]);
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [openModels,setopenModel]=useState(false);
+    const[closeModals,setCloseModal]=useState(false);
+
+
+const openModel=()=>{
+    setopenModel(true);
+}
+const closeModal=()=>{
+    setopenModel(false);
+}
+
+const background={
+    color: "#fff",
+     display: "block",
+     marginRight:"130px",
+     width:"77%",
+     background:"#e75480 " ,
+     borderRadius:"7px",
+     textDecoration: "none",
+    height:"50px",
+    paddingLeft:"0",
+    border: "0px solid #0ca285",
+  
+    
+
+}
+
+
+const renderActionCell = (val: any, index: number) => (
+   
+    <TableCell align="left" key={index}>
+    
+
+       <button  style ={background} onClick={openModel}>Track Order</button>
+        {/* { val.map((item: any, indx: number) => (
+          
+            // <Button
+            //     className={item.classname}
+            //     key={indx}
+            //     onClick={item.method ? item.method.bind({}, indx) : item.callBack}
+            //     btnText={item.btnTxt}
+            // />
+        ))} */}
+    </TableCell>
+)
+
+
+    
     useEffect(() => {
         setData(props.data)
         // if (data.length > props.data.length)
@@ -274,6 +327,8 @@ const TableComponent: React.FC<TableProps> = (props) => {
         }
     }
 
+  
+
     const isSelected = (name: string) => selected.indexOf(name) !== -1;
     const { headers, children } = props;
     return (
@@ -346,6 +401,13 @@ const TableComponent: React.FC<TableProps> = (props) => {
                     onChangeRowsPerPage={handleChangeRowsPerPage}
                 />
             </Paper>
+
+            {openModels?
+                <ModalComponent open={openModels} alongSidebar={true}>
+                  
+             
+            </ModalComponent>:null
+            }
         </div >
     );
 }

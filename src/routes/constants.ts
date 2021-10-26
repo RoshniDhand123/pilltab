@@ -52,7 +52,7 @@ export const CONSTANTS = {
 	EDIT_PROFILE: "Edit Profile",
 	EDIT_BILLING_HEADER: "Billing",
 	EDIT_BILLING: "Edit Billing Infomation",
-	ORDER_HEADER: "Orders",
+	ORDER_HEADER: "Orders History",
 	UPCOMING_ORD: "Upcoming Order",
 	ORD_HIST: "Order History",
 	MED_INFO_HEADER: "Update Medical Information",

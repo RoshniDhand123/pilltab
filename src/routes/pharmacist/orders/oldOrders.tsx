@@ -7,13 +7,13 @@ import { HeadCell } from '../../../components/tableCmp/type';
 
 
 const headCells: HeadCell[] = [	
-	{name:"serailNo",label:"SerialNo"},
-	{name:"orderId",label:"OrderId"},
-	{ name: "name", label: "Name" },
-	{ name: "age", label: "Age" },
-	{ name: "address", label: "Address" },
-	{ name: "plan", label: "Plan" },
-	{ name: "action", label: "Action" },	
+	{name:"serailNo",label:"SerialNo",width:"30px"},
+	{name:"orderId",label:"OrderId",width:"30px"},
+	{ name: "name", label: "Name",width:"30px" },
+	{ name: "age", label: "Age" ,width:"30px"},
+	{ name: "address", label: "Address" ,width:"30px"},
+	{ name: "plan", label: "Plan",width:"30px" },
+	{ name: "action", label: "Action",width:"30px" },	
 	
 ];
 

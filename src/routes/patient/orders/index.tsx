@@ -20,9 +20,9 @@ const headCells: HeadCell[] = [
 	// { name: "Status", label: "Status" },
 	// { name: "City", label: "City" },
 	// { name: "Salary", label: "Salary" },
-	{ name: "Plan", label: "Plan" },
-	{ name: "Date", label: "Order Date" },
-	{ name: "Status", label: "Status" }
+	{ name: "Plan", label: "Plan" ,width:"30px"},
+	{ name: "Date", label: "Order Date" ,width:"30px"},
+	{ name: "Status", label: "Status",width:"30px" }
 ];
 export type OrderType = {
 	Medication: string;

@@ -13,7 +13,7 @@ const Evaluation = React.lazy(() => import("../nurse/evaluations"));
 const SearchPatient = React.lazy(() => import("../nurse/search-patient"));
 //const PatientChart = React.lazy(() => import("../nurse/patient-chart"));
 const NewRequests = React.lazy(() => import("../nurse/new-requests"));
-const AcceptedRequests = React.lazy(() => import("../nurse/accepted-requests"));
+const AcceptedRequests = React.lazy(() => import("../nurse/accepted-requests/index"));
 const FollowUp = React.lazy(() => import("../nurse/FollowUp"));
 const PatientReports = React.lazy(
 	() => import("../nurse/patient-reports/index")

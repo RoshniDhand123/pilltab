@@ -1,6 +1,7 @@
 import * as Yup from "yup";
 import { field } from "./types";
 
+
 export const createSchema = (validations: field[]) => {
 	let shape: any = {};
 	for (let i = 0; i < validations.length; i++) {
@@ -21,18 +22,7 @@ export const createSchema = (validations: field[]) => {
 			shape[_key] = Yup.string().email(
 				_err_msg || "Please provide a valid email address"
 			);
-		} else if (_type === "number") {
-			shape[_key] = Yup.number();
-			if (_min)
-				shape[_key] = shape[_key].min(
-					_min,
-					"Minimum length should " + _min + ""
-				);
-			if (_max)
-				shape[_key] = shape[_key].max(
-					_max,
-					"Maximum length should " + _max + ""
-				);
+		
 		} else if (_type === "date") {
 			shape[_key] = Yup.date();
 			if (_min_date) shape[_key] = shape[_key].min(_min_date);
@@ -59,12 +49,37 @@ export const createSchema = (validations: field[]) => {
 		if (_key === "cpassword") {
 			shape["cpassword"] = Yup.mixed().test(
 				"match",
-				"password and re-enter password does not match",
+				"password and confirm- password does not match",
 				function (password) {
 					return password === this.parent.password;
 				}
 			);
 		}
+		const phoneRegExp =/^[- +()]*[0-9][- +()0-9]*$/
+		if (_key === "num") {
+			shape[_key] =Yup.string()
+			.matches(phoneRegExp, 'Phone number is not valid')
+			.min(5, "to short")
+			.max(15, "to long")
+			
+			
+		}
+		
+		const pincodeRegExp =/^([0-9]{5})(?:[-\s]*([0-9]{4}))?$/
+
+		if(_key==="Code"){
+			shape[_key]=Yup.string()
+			.matches(pincodeRegExp,'wrong Credentials')
+			.min(5)
+			.max(10)
+		}
+
+		if(_type==="password"){
+			shape[_key]=Yup.string().required('No password provided.') 
+			.min(4, 'Password is too short - should be 4 chars minimum.')
+			.matches(/[a-zA-Z]/, 'Password can only contain Latin letters.')
+		}
+		
 	}
 	return Yup.object().shape(shape);
 };

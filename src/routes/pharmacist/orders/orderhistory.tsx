@@ -13,12 +13,11 @@ import { notifError } from '../../util';
 const Orderhistory = () => {
 
     const headCells: HeadCell[] = [	
-        {name:"serailNo",label:"SerialNo"},
-        {name:"orderId",label:"OrderId"},
-        { name: "name", label: "Name" },
-        { name: "age", label: "Age" },
-        { name: "address", label: "Address" },
-       {name:"Delievery Status",label:"Delievery Status"}	
+      {name:"Id",label:"Id",width:"1px"},
+        { name: "name", label: "Name",width:"5px" },
+        { name: "age", label: "Age" ,width:"4px"},
+        { name: "address", label: "Address" ,width:"60px"},
+       {name:"Status",label:"Status",width:"30px"}	
         
     ];
 const state = {
@@ -37,7 +36,7 @@ const state = {
         setloading(true);
         let resp = await getPatientOrderHistory();
         if (resp.data && resp.data.status) {
-          setOrderHistory:parseOrderHistory(resp.data.data)
+          // setOrderHistory(parseOrderHistory(resp.data.data));
           console.log(resp);
 
       }
@@ -62,7 +61,7 @@ const state = {
 
         <div className="table-container">
           <TableCmp
-            title={CONSTANTS.ORDER_TABLE_TITLE}
+           title
             headers={headCells}
             data={orderHistory}
             // data={orderHistory}

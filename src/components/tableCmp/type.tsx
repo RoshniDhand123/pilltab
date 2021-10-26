@@ -9,6 +9,7 @@ interface EnhancedTableToolbarProps {
 
 interface HeadCell {
     name: string;
+    width:string;
     label: string;
 }
 

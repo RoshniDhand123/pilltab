@@ -1,7 +1,7 @@
 import axios from "axios";
 //import { object } from "yup/lib/locale";
 import { getToken, clearStorage } from "../storage";
-const BASE_URL = "http://5895-203-129-220-19.ngrok.io/";
+const BASE_URL = "http://192.168.4.49:8000/";
 
 let token = getToken();
 const requestHeaders = {

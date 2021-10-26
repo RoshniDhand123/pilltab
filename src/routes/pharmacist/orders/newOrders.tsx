@@ -20,13 +20,12 @@ import { Track } from "twilio-video";
 
 
 const headCells: HeadCell[] = [	
-	{name:"serailNo",label:"SerialNo"},
-	{name:"orderId",label:"OrderId"},
-	{ name: "name", label: "Name" },
-	{ name: "age", label: "Age" },
-	{ name: "address", label: "Address" },
-	{ name: "plan", label: "Plan" },
-	{name:"action",label:"Action"},
+	{name:"orderId",label:"OId",width:"4%"},
+	{ name: "name", label: "Name" ,width:"15%"},
+	{ name: "age", label: "Age",width:"12%" },
+	{ name: "address", label: "Address",width:"36%" },
+	{ name: "plan", label: "Plan",width:"15%" },
+	{name:"action",label:"Action",width:"18%"},
 	
 ];
 

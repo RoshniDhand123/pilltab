@@ -18,6 +18,7 @@ const Chart = React.lazy(() => import('./patient/chart'));
 const PATIENT_VIDEOCALLING = React.lazy(() => import('./patient/attendCalling'));
 const ContactUs = React.lazy(() => import('./contact-us'));
 const AboutUs = React.lazy(() => import('./about-us'));
+const ChangeInfo = React.lazy(()=>import ('./pharmacist/changeInfo'));
 
 
 type RouteType = {
@@ -53,6 +54,7 @@ const Routes = ({ userRole, onLogin }: RouteType) => {
           <Route path={path.BILLING} component={Billing} />
           <Route path={path.Home} component={Home} />
           <Route path={path.PATIENT_VIDEOCALLING} component={PATIENT_VIDEOCALLING} />
+         
           <Redirect from="*" to={path.LOGIN} />
         </> :
         <Home userRole={userRole} />

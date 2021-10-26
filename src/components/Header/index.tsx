@@ -15,6 +15,7 @@ import NotificationMenu from "../notificationMenu";
 import {
 	getNurseNotificationData,
 	getPatientNotification,
+	getParmacistNotificationData
 } from "../../services/apis/index";
 import {
 	parseNurseNotification,
@@ -47,6 +48,7 @@ export type NotificationType = {
 };
 const settingList = [
 	{ list: "My Profile", url: "/my-profile" },
+	
 	//{ list: "change Password", url: "/forgot-password" },
 ];
 const Header: React.FC<Props> = ({
@@ -89,12 +91,20 @@ const Header: React.FC<Props> = ({
 		let notifData = parsePatientNotification(resp.data.data);
 		setNotificationData(notifData);
 	};
+	const handleParmacistNotification = async()=>{
+		let resp = await getParmacistNotificationData();
+		let notif1 = parsePatientNotification(resp.data.data);
+		setNotificationData(notif1);
+	}
 	React.useEffect(() => {
 		if (role == "Nurse") {
 			handleNurseNotification();
 		}
 		if (role === "User") {
 			handlePatientNotification();
+		}
+		if(role == "Parmacist"){
+			handleParmacistNotification();
 		}
 	}, []);
 

@@ -10,17 +10,16 @@ import { notifError, notifSuccess } from '../../util';
 import fields from'./fields';
 import { type } from 'os';
 import ModalComponent from '../../../components/modal';
-import '../style.scss';
 import {changepassword1} from '../../../services/helper';
 
 interface payload_type{
     oldPassword:any;
-    newPassword:any;
-    confirmPassword:any;
+    password:any;
+    cpassword:any;
    
 }
 
-const initialValues ={oldPassword:"",newPassword:"",confirmPassword:""};
+const initialValues ={oldPassword:"",password:"",cpassword:""};
 
 const Frgpass:React.FC<payload_type> = () =>{
 	
@@ -34,15 +33,15 @@ const Frgpass:React.FC<payload_type> = () =>{
  const 	sendCode = async (payload: payload_type, { resetForm }: any) => {
 	const info={
 		oldPass:payload.oldPassword,
-		newPass:payload.newPassword,
-		confPass:payload.confirmPassword
+		newPass:payload.password,
+		confPass:payload.cpassword
 	};
 
-     console.log(payload);
-	 setloading(false);
+     console.log("Info",info);
+	 
 		let resp = await changePassword(info);
 		console.log(resp);
-	setloading(false);
+
 	if(resp && resp.data &&resp.data.status){
 	notifSuccess("Password Changed ","password  has been Changed Successfully!");	
 	}
@@ -74,11 +73,16 @@ const Frgpass:React.FC<payload_type> = () =>{
 								btnText="change password"
 								type="submit"
 							/>
+							
 						}
 						alignCenter={true}
 						gridItem={6}
 						column={12}
+
+						
+						
 					/>
+					
 				</div>
 				<Loading show={loading} />
             

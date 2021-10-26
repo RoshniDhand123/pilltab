@@ -11,7 +11,7 @@ import Field from "../../../components/Field";
     },
     {
         label:"New Password",
-        name: "newPassword",
+        name: "password",
         component: Field,
         placeholder: "New Password",
         type: "text",
@@ -20,7 +20,7 @@ import Field from "../../../components/Field";
     },
     {
         label:"Confirm Password",
-        name: "confirmPassword",
+        name: "cpassword",
         component: Field,
         placeholder: "Confirm Password",
         type: "text",

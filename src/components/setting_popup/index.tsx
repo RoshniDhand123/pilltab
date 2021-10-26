@@ -54,6 +54,8 @@ const NotificationMenu: React.FC<Props> = ({
 								</div>
 							))}
                             <div className="border-b padding-10" onClick={()=>renderRoute("/change-password")}>Change-Password</div>
+							<div className ="border-b padding-10" onClick={()=>renderRoute("/change-info")}>Change Address And  Telephone Number </div>
+							
 						<div className="padding-10" onClick={onLogout}>Logout</div>
 					</div>
 				{/* </Typography> */}

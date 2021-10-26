@@ -6,12 +6,12 @@ import AppLogo from "../../components/app-logo";
 import BigLogo from "../../assets/img/biglogo.png";
 import { login } from "../../services/apis";
 import { notifError, notifSuccess } from "../util";
-import OneSignal  from "react-onesignal";
+import OneSignal from "react-onesignal";
 import "./style.scss";
 type payload_type = {
     email: string;
     password: string;
-    player_id: string;
+    //player_id: string;
 };
 class Login extends React.PureComponent<
     {
@@ -34,17 +34,17 @@ class Login extends React.PureComponent<
         if (this.props.userRole) window.location.href = "/";
     }
     doSignin = async (payload: payload_type) => {
-        let options = {
-            appId: "5a6c2bc4-ea41-4a9e-9ef4-d4425281360e",
-            //subdomainName: "pilltab.os.tc",
-            allowLocalhostAsSecureOrigin: true,
-            notifyButton: {
-                enable: true,
-            },
-        };
-        await OneSignal.init(options);
-        const playerId = await OneSignal.getUserId();
-        payload["player_id"] = playerId!;
+        // let options = {
+        //  appId: "5a6c2bc4-ea41-4a9e-9ef4-d4425281360e",
+        //  //subdomainName: "pilltab.os.tc",
+        //  allowLocalhostAsSecureOrigin: true,
+        //  notifyButton: {
+        //      enable: true,
+        //  },
+        // };
+        // await OneSignal.init(options);
+        // const playerId = await OneSignal.getUserId();
+        // payload["player_id"] = playerId!;
         this.setState({ loading: true });
         let resp = await login(payload);
         this.setState({ loading: false });

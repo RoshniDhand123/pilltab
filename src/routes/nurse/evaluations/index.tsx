@@ -21,10 +21,10 @@ import ModalComponent from "../../../components/modal";
 import { notifError, notifSuccess } from "../../util";
 
 const headers: HeadCell[] = [
-	{ name: "Patient Name", label: "Patient Name" },
-	{ name: "Time", label: "Appointment Time" },
-	{ name: "Dob", label: "Date Of Birth" },
-	{ name: "action", label: "Action" },
+	{ name: "Patient Name", label: "Patient Name",width:"30px" },
+	{ name: "Time", label: "Appointment Time" ,width:"30px"},
+	{ name: "Dob", label: "Date Of Birth" ,width:"30px"},
+	{ name: "action", label: "Action" ,width:"30px"},
 	// { name: "Id", label: "ID" },
 	// { name: "Name", label: "Name" },
 	// { name: "Dob", label: "DOB" },

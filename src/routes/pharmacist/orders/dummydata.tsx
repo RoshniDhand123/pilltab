@@ -1,31 +1,28 @@
 import React from 'react'
-
+ // style={{width:"2%"}}
 
 const data= [
 
        {
-         serailNo:"1",
-         orderId:"1",
+        orderId:"1",
          name:"jacky",
          age:"35",
          address:"Ludhiana",
          plan:"4000",
-         width: 10,
+          
         
          
        },
        {
-        serailNo:"2",
         orderId:"2",
         name:"jerry",
         age:"40",
         address:"Chandigarh",
         plan:"9000",
-        width:30
+       
        
         },
       {
-      serailNo:"3",
       orderId:"3",
       name:"Joe",
       age:"40",
@@ -35,7 +32,6 @@ const data= [
       
       },
        {
-      serailNo:"4",
       orderId:"4",
       name:"tom",
       age:"40",
@@ -44,7 +40,6 @@ const data= [
      
       },
       {
-        serailNo:"5",
         orderId:"5",
         name:"elle",
         age:"40",

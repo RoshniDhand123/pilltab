@@ -38,7 +38,7 @@ const header_styles = makeStyles((theme) => ({
 		marginLeft: "10px",
 	},
 	divider: {
-		width: "90%",
+		width: "100%",
 		border: "0.2px solid #ffffff",
 		margin: "auto",
 	},

@@ -12,9 +12,9 @@ import { HeadCell } from "../../../components/tableCmp/type";
 import { notifError, notifSuccess } from "../../util";
 
 const headCells: HeadCell[] = [
-	{ name: 'File Name', label: 'File Name' },
-	{ name: 'File Content', label: 'File Content' },
-	{ name: 'Date Uploaded', label: 'Date Uploaded' },
+	{ name: 'File Name', label: 'File Name',width:"30px" },
+	{ name: 'File Content', label: 'File Content',width:"30px" },
+	{ name: 'Date Uploaded', label: 'Date Uploaded' ,width:"30px"},
 ];
 
 class UploadDocuments extends React.PureComponent<any, {}> {
