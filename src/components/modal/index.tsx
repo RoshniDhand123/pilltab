@@ -11,7 +11,7 @@ interface modalProps {
     open: boolean,
     modalHeading?: string,
     modalText?: string,
-    buttonAction?: () => void,
+    buttonAction?: any,
     buttonText?: string,
     children?: React.ReactNode,
     alongSidebar?: Boolean;

@@ -18,6 +18,7 @@ export const APP = "/",
 export const PASWORD_MATCHER = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
 
 export const CONSTANTS = {
+	INFO:"your data has been saved successfully",
 	PROFILE_SUCCESS_PAYMENT: "You have successfully signup", //"Your order has been placed, log in to your portal to select an appointment time",
 	PROFILE_SUCCESS:
 		"Your profile has been created successfully but payment failed.Please try again after login",
@@ -47,6 +48,8 @@ export const CONSTANTS = {
 	FORGOT_PSWD_SUBTITLE:
 		"Please check your inbox, we sent the code on your register email.",
 	THANK_YOU: "Thank you!",
+	UPDATED_INFO:"Do you want to Update any Information?",
+	UPDATED_ERROR:"UPDATION CANCELED",
 	CHART_HEADER: "My Chart",
 	CURRENT_MED: "Current Medications",
 	EDIT_PROFILE: "Edit Profile",

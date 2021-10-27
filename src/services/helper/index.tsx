@@ -1,6 +1,7 @@
 //import { request } from "node:http";
 import { TRUE } from "node-sass";
 import Field from "../../components/Field";
+import { payload_type,payload_type1 } from "../../routes/forgot-password/types";
 import { clearStorage, getItem, getToken } from "../storage";
 
 var day = [
@@ -393,6 +394,20 @@ export const ediProfilePayload = (profile: any) => {
 		},
 	};
 };
+
+
+export const editInfoPayload =(payload:payload_type1)=>{
+	return{
+			 Address:payload.Address,
+            Street:payload.Street,
+            City:payload.City,
+            State:payload.State,
+            Code:payload.Code,
+            Country:payload.country,
+            Number:payload.num
+        };
+	}
+
 
 export const parseBillingShippingValues = (payload: any) => {
 	let { billing, shipping, token } = payload;

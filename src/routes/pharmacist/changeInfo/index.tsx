@@ -5,62 +5,65 @@ import Button  from "../../../components/button";
 import {Typography} from"@material-ui/core";
 import { notifError,notifSuccess } from '../../util';
 import {changePassword} from"../../../services/apis";
+import { CONSTANTS } from '../../constants';
+import ModalComponent from '../../../components/modal';
+import { editInfoPayload } from '../../../services/helper';
 
 import"./style.scss"; 
 
-interface payload_type{
-    Address?:any;
-    Street?:any;
-    City?:any;
-    State?:any;
-    Code?:any;
-    country?:any;
-    num?:any;
-}
+import FormHeading from '../../../components/form-heading';
+import { payload_type1 } from '../../forgot-password/types';
+
 
 const initialValues ={Address:"",Street:"",City:"",State:"",Code:"",Country:"",num:""};
 
-const ChInf:React.FC<payload_type>=() => {
+const ChInf:React.FC=() => {
     const [address,setaddress]=useState();
     const[city,setCity]=useState();
     const[state,setState]=useState();
     const [code,setCOde]=useState();
     const[country,setCountry]=useState();
     const[number,setNumber]=useState();
+    const [open,setOpen] = useState(false);
+    const[value1,setValue1]=useState<payload_type1>({});
 
-    const sendCode =  async (payload: payload_type, { resetForm }: any) =>{
-        const info={
-            Address:payload.Address,
-            Street:payload.Street,
-            City:payload.City,
-            State:payload.State,
-            Code:payload.Code,
-            Country:payload.country,
-            Number:payload.num
-        };
-        console.log("ChangeInfo",info);
-    
-    
-
-
-
-let resp = await changePassword(info);
-		console.log(resp);
-
-	if(resp && resp.data &&resp.data.status){
-	notifSuccess("Information Changed ","Information has been Changed Successfully!");	
-	}
-	else{
-		notifError("Something Went Wrong","Something went Wrong");
-	}
-    
+  
+    const sendCode = (payload:payload_type1) =>{
+       
+        setValue1(payload)
+       
+      setOpen(true);
     }
+    
+    
+    const changeInfo=()=>{
+      console.log(value1);
+      setOpen(false);
+   }
+
+    const cancel=()=>{
+        setOpen(false);
+    }
+    const RandomButton=[{text:"cancel",action:cancel}]
 
     return (
         
     <>
+ 
 
 <div id="forgot-password-setting">
+
+<ModalComponent
+					open={open}
+					buttonText={"OK"}
+                    
+                  renderButtons={RandomButton}
+                   buttonAction={
+                    changeInfo
+					}
+					modalHeading={CONSTANTS.UPDATED_INFO}
+					alongSidebar={true}								
+				/>
 
 <Typography variant="h3" gutterBottom>
         Change Address and Telephone Number
