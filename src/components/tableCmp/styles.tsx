@@ -47,6 +47,8 @@ const useToolbarStyles = makeStyles((theme: Theme) =>
                 },
         title: {
             flex: '1 1 100%',
+            // marginLeft:'40%',
+            // fontSize:'24px'
         },
     }),
 );

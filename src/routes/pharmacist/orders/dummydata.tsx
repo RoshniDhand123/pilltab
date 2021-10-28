@@ -2,9 +2,9 @@ import React from 'react'
  // style={{width:"2%"}}
 
 const data= [
-
-       {
-        orderId:"1",
+        {
+        SerialNo:"1",
+        orderId:"OOitf1",
          name:"jacky",
          age:"35",
          address:"Ludhiana",
@@ -14,7 +14,8 @@ const data= [
          
        },
        {
-        orderId:"2",
+        SerialNo:"2",
+        orderId:"OOif2",
         name:"jerry",
         age:"40",
         address:"Chandigarh",
@@ -23,7 +24,8 @@ const data= [
        
         },
       {
-      orderId:"3",
+        SerialNo:"3",
+      orderId:"OOif3",
       name:"Joe",
       age:"40",
       address:"Delhi",
@@ -32,7 +34,8 @@ const data= [
       
       },
        {
-      orderId:"4",
+        SerialNo:"4",
+      orderId:"OOif4",
       name:"tom",
       age:"40",
       address:"Chennai",
@@ -40,7 +43,8 @@ const data= [
      
       },
       {
-        orderId:"5",
+        SerialNo:"5",
+        orderId:"OOif5",
         name:"elle",
         age:"40",
         address:"delhi",

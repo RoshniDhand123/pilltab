@@ -18,6 +18,7 @@ export const APP = "/",
 export const PASWORD_MATCHER = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;
 
 export const CONSTANTS = {
+	ORDERS:"Your Orders ",
 	INFO:"your data has been saved successfully",
 	PROFILE_SUCCESS_PAYMENT: "You have successfully signup", //"Your order has been placed, log in to your portal to select an appointment time",
 	PROFILE_SUCCESS:

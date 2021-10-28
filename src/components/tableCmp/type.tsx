@@ -29,7 +29,7 @@ type ActionPara = {
 }
 interface TableProps {
     total?: number;
-    title: any;
+    title?: any;
     headers: HeadCell[];
     data: any;
     children?: React.ReactChild;

@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import clsx from 'clsx';
+import data1 from '../../routes/pharmacist/orders/dummydata';
+
+import ButtonComponent from '../button';
 import {
     Table,
     TableBody,
@@ -25,6 +28,18 @@ import ModalComponent from '../modal';
 import ViewDetail from '../../routes/nurse/view-detail';
 import Button from "../button";
 import Tracking from "../../routes/pharmacist/orders/tracking";
+import { CONSTANTS } from '../../routes/constants';
+import OrderCard from '../order-card';
+
+
+const currentOrder = null;
+const orders: OrderType[] = [];
+
+export type OrderType={
+OrderId:string,
+name:string,
+age?:number
+}
 
 const renderCell = (val: string, index: number) => (
     <TableCell align="left" key={index}>{val === "undefined" ? "" : val}</TableCell>
@@ -169,12 +184,16 @@ const TableComponent: React.FC<TableProps> = (props) => {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [openModels,setopenModel]=useState(false);
     const[closeModals,setCloseModal]=useState(false);
+    const[data1,setdata]=useState();
+    console.log(data1);
 
 
 const openModel=()=>{
     setopenModel(true);
 }
 const closeModal=()=>{
+     
+    
     setopenModel(false);
 }
 
@@ -200,7 +219,7 @@ const renderActionCell = (val: any, index: number) => (
     <TableCell align="left" key={index}>
     
 
-       <button  style ={background} onClick={openModel}>Track Order</button>
+       <button  style ={background} onClick={openModel}>Manage Order</button>
         {/* { val.map((item: any, indx: number) => (
           
             // <Button
@@ -331,7 +350,9 @@ const renderActionCell = (val: any, index: number) => (
 
     const isSelected = (name: string) => selected.indexOf(name) !== -1;
     const { headers, children } = props;
+    const[id,setid]=useState();
     return (
+      
         <div className={classes.root} id="table">
             <Paper className={classes.paper}>
                 <EnhancedTableToolbar
@@ -402,12 +423,22 @@ const renderActionCell = (val: any, index: number) => (
                 />
             </Paper>
 
-            {openModels?
-                <ModalComponent open={openModels} alongSidebar={true}>
-                  
+        
+                <ModalComponent open={openModels}
+
+                >            				
+
+                <Tracking
+                							
+                   
+                    button1="back"
+                
+                
+                />  
+               
              
-            </ModalComponent>:null
-            }
+            </ModalComponent>
+            
         </div >
     );
 }

@@ -12,6 +12,7 @@
 			width: 150px;
 		}
 	}
+	
 	.MuiPaper-elevation1 {
 		box-shadow: none;
 	}
@@ -30,6 +31,7 @@
 	.MuiTableCell-root {
 		border-bottom: 1px solid $color-table-border;
 	}
+	
 	.MuiTableSortLabel-root.MuiTableSortLabel-active {
 		color: $color-secondary;
 	}

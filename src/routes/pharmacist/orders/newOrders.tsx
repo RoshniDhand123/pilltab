@@ -13,18 +13,27 @@ import ModalComponent from "../../../components/modal";
 	parsePatientMedicalInfo,
 	
 } from "../../../services/helper/index";
+import OrderCard from "../../../components/order-card";
 import { getUserRequestList,getPatientMedicalInfo } from "../../../services/apis/index";
 import Tracking from "./tracking";
 import { Track } from "twilio-video";
 
+const currentOrder = null;
+const orders: OrderType[] = [];
 
+export type OrderType={
+OrderId:string,
+name:string,
+age?:number
+}
 
-const headCells: HeadCell[] = [	
-	{name:"orderId",label:"OId",width:"4%"},
-	{ name: "name", label: "Name" ,width:"15%"},
-	{ name: "age", label: "Age",width:"12%" },
-	{ name: "address", label: "Address",width:"36%" },
-	{ name: "plan", label: "Plan",width:"15%" },
+const headCells: HeadCell[] = [
+	{name:"SerialNo",label:"SerialNo",width:"6"},	
+	{name:"orderId",label:"OrderId",width:"4%"},
+	{ name: "name", label: "Name" ,width:"14%"},
+	{ name: "age", label: "Age",width:"11%" },
+	{ name: "address", label: "Address",width:"33%" },
+	{ name: "plan", label: "Plan",width:"14%" },
 	{name:"action",label:"Action",width:"18%"},
 	
 ];
@@ -76,6 +85,8 @@ const onPageChange = async (perPage: number, page: number) => {
 	
 	// })
 
+
+
 	const[open,setOpen]=useState(true);
 	
     return(
@@ -85,6 +96,9 @@ const onPageChange = async (perPage: number, page: number) => {
 					<Typography variant="h3" gutterBottom>
 						{CONSTANTS.PHARMACIST_TITLE}
 					</Typography>
+					
+					
+
 		</div>
 		<div className="table-container">
 		<TableCmp
