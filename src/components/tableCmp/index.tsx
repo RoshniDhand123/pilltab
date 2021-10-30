@@ -184,7 +184,8 @@ const TableComponent: React.FC<TableProps> = (props) => {
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
     const [openModels,setopenModel]=useState(false);
     const[closeModals,setCloseModal]=useState(false);
-    const[data1,setdata]=useState();
+    const[data1,setdata]=useState({});
+    const[status1,setstatus1]=useState();
     console.log(data1);
 
 
@@ -192,7 +193,7 @@ const openModel=()=>{
     setopenModel(true);
 }
 const closeModal=()=>{
-     
+     setopenModel(true);
     
     setopenModel(false);
 }
@@ -430,11 +431,14 @@ const renderActionCell = (val: any, index: number) => (
 
                 <Tracking
                 							
-                   
+                   closeModel={closeModal}
                     button1="back"
-                
+                   orderId={id}
+                    data={data1}
+                    status={status1}
                 
                 />  
+                
                
              
             </ModalComponent>

@@ -49,14 +49,14 @@ const ViewDetail = ({ closeModel, id,secondBtnText,medicalInfo }: Iprops) => {
 		return(value.map((list)=><li>{list}</li>))					
 	}
 	
-	const showData = (list:medicalInfo) => {
+	const showData = function (list: medicalInfo) {
 		return (
 			<div className="container-box">
 				{Object.entries(list).map(([key, value], index) => {
 					return (
 						<div className="d-flex">
-							<div className="fieldName">{key}</div>							
-							<div className="fieldValue">{Array.isArray(value)?list:value}</div>
+							<div className="fieldName">{key}</div>
+							<div className="fieldValue">{Array.isArray(value) ? list : value}</div>
 						</div>
 					);
 				})}

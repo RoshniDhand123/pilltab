@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@material-ui/core";
 import { CONSTANTS } from "../../constants";
 import Loading from "../../../components/loader";
-import { getUserRequestList,getPatientMedicalInfo } from "../../../services/apis/index";
+import { getUserRequestList, getPatientMedicalInfo } from "../../../services/apis/index";
 import {
 	parseAcceptRequestsList,
 	getTimeSequenceList,
@@ -16,14 +16,14 @@ import PatientChart from "../patient-chart";
 import ViewDetail from "../view-detail";
 
 const headCells: HeadCell[] = [
-	{ name: "Id", label: "ID",width:"30px" },
-	{ name: "Name", label: "Name" ,width:"30px"},
-	{ name: "Dob", label: "DOB" ,width:"30px"},
-	{ name: "Email", label: "Email",width:"30px" },
+	{ name: "Id", label: "ID", width: "30px" },
+	{ name: "Name", label: "Name", width: "30px" },
+	{ name: "Dob", label: "DOB", width: "30px" },
+	{ name: "Email", label: "Email", width: "30px" },
 	// { name: "Date", label: "Date" },
 	// { name: "Time", label: "Time" },
-	{ name: "Status", label: "Status" ,width:"30px"},
-	{ name: "action", label: "Action" ,width:"30px"},
+	{ name: "Status", label: "Status", width: "30px" },
+	{ name: "action", label: "Action", width: "30px" },
 ];
 
 class AcceptedRequests extends React.PureComponent<
@@ -32,18 +32,18 @@ class AcceptedRequests extends React.PureComponent<
 		loading: boolean;
 		details: PatientReportType[];
 		total: number;
-		open: boolean;		
+		open: boolean;
 		id: number;
-		userMedicalInfo:any;
+		userMedicalInfo: any;
 	}
 > {
 	state = {
 		loading: true,
 		details: [],
 		total: 0,
-		open: false,		
+		open: false,
 		id: -1,
-		userMedicalInfo:[],
+		userMedicalInfo: [],
 	};
 
 	componentDidMount() {
@@ -66,7 +66,7 @@ class AcceptedRequests extends React.PureComponent<
 		//console.log("status", resp);
 		this.setState({ loading: false });
 	};
-	_loadDetails = async (page = 0, perPage = 10) => {};
+	_loadDetails = async (page = 0, perPage = 10) => { };
 
 	onPageChange = async (perPage: number, page: number) => {
 		const { total, details = [] } = this.state;
@@ -77,21 +77,21 @@ class AcceptedRequests extends React.PureComponent<
 
 	getUserRecord = async (row: any, id: any) => {
 		//console.log("row=", row);
-		let resp=await getPatientMedicalInfo(row.Id);
-		if(resp.data && resp.data.status){
-			let parseData=parsePatientMedicalInfo(resp.data.data);
-			this.setState({userMedicalInfo:parseData});
+		let resp = await getPatientMedicalInfo(row.Id);
+		if (resp.data && resp.data.status) {
+			let parseData = parsePatientMedicalInfo(resp.data.data);
+			this.setState({ userMedicalInfo: parseData });
 		}
 		//console.log("questions info",resp);
 		this.setState({ id: row.Id, open: true });
 	};
 
-	closeModal = (setAppointment:boolean) => {
+	closeModal = (setAppointment: boolean) => {
 		this.setState({ open: false });
-		if(setAppointment){
-			this.setState({loading:true})
+		if (setAppointment) {
+			this.setState({ loading: true })
 			this.getRequestList();
-		}		
+		}
 	};
 
 	render() {
@@ -100,15 +100,15 @@ class AcceptedRequests extends React.PureComponent<
 			total,
 			details,
 			open,
-			id,			
+			id,
 			userMedicalInfo,
 		} = this.state;
 		return (
-			<>			
+			<>
 				{open && (
 					<ModalComponent open={open} alongSidebar={true}>
 						<ViewDetail
-							closeModel={this.closeModal}												
+							closeModel={this.closeModal}
 							id={id}
 							medicalInfo={userMedicalInfo}
 						/>

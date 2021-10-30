@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from "react";
-import TableCmp from "../../../components/tableCmp";
 import { HeadCell } from "../../../components/tableCmp/type";
 import { Typography } from "@material-ui/core";
 import { CONSTANTS } from "../../constants";
@@ -13,10 +12,12 @@ import ModalComponent from "../../../components/modal";
 	parsePatientMedicalInfo,
 	
 } from "../../../services/helper/index";
+import TableCmp from "../../../components/tableCmp";
 import OrderCard from "../../../components/order-card";
 import { getUserRequestList,getPatientMedicalInfo } from "../../../services/apis/index";
-import Tracking from "./tracking";
+
 import { Track } from "twilio-video";
+import Tracking from "./tracking";
 
 const currentOrder = null;
 const orders: OrderType[] = [];
